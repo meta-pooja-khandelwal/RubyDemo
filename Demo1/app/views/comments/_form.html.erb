@@ -1,0 +1,9 @@
+<%=form_for([@post, @post.comments.build]) do |f|%>
+  <%=f.label :commenter%><br>
+  <%=f.text_field :commenter%><br>
+  <br>
+  <%=f.label :body%><br>
+  <%=f.text_area :body%><br>
+  <br>
+  <%=f.submit%>
+  <% end %>

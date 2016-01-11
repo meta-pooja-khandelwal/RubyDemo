@@ -1,0 +1,10 @@
+<strong>Title</strong><br>
+<h1><%=@post.title%></h1><br>
+<strong>Text</strong><br>
+<p><%=@post.text%></p><br>
+<strong>Comments</strong><br>
+<%=render @post.comments%>
+<h2>Add comment</h2>
+<%=render "comments/form"%>
+<%=link_to "edit post",edit_post_path%>
+<%=link_to "delete post" ,post_path,method: :delete,data:{confirm:"Are u sure?"}%>
