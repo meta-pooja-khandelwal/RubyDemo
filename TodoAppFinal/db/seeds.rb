@@ -5,4 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-todos=Todo.create(:username => "Hello", :role => "Admin")
+#todos=Todo.create(:username => "Hello", :role => "Admin")
+Comment.create(body: 'hi')
+Comment.create(body: 'hi',todo_id: 20)

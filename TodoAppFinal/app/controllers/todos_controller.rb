@@ -1,8 +1,8 @@
 class TodosController < ApplicationController
+skip_before_filter  :verify_authenticity_token
 
-  skip_before_filter  :verify_authenticity_token
-  #before_action :get_user, except: [:index]
   respond_to :html, :json
+
 
   def index
 
@@ -30,7 +30,39 @@ class TodosController < ApplicationController
     end
   end
 
-  
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    render json: {status: :ok}
+  end
+
+
+  def show
+    puts("hiiiiii")
+@todo = Todo.find(params[:id])
+      respond_with(@todo.as_json)
+
+=begin
+    @todo= Todo.find(params[:id])
+      respond_with @todo
+
+
+      respond_to do |format|
+      format.html
+      format.json { render json: @todo }
+  end
+
+
+=end
+  end
+
+
+
+
+
+
+
+
   private
   def todo_params
     params.fetch(:todo).permit(:title, :done)

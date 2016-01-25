@@ -23,12 +23,12 @@
 							</form>
 						</li>
 					</ul>
-				</section>
-			<!--<footer id="footer" ng-show="remaining()>0" ng-cloak>
-					<span id="todo-count"><strong>{{remaining()}}</strong>
+
+			<footer id="footer" ng-cloak>
+				<span id="todo-count"><strong>{{remaining()}}</strong>
 						<ng-pluralize count="remaining()" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
-					</span>
-					<ul id="filters"  ng-model="status">
+				</span>
+						<ul id="filters"  ng-model="status">
 						<li>
 							<button ng-click="showAll()"><a ng-class="{selected:status ==''} " href="/">All</a></button>
 						</li>
@@ -39,5 +39,6 @@
 						<button ng-click="showCompleted()">	<a ng-class="{selected: status == 'true'}" href="#/completed">Completed</a></button>
 						</li>
 					</ul>
-					<button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="todoList.length - remaining()>0">Clear completed</button>
-				</footer>-->
+	<button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="todoList.length - remaining()>0">Clear completed</button>
+				</footer>
+	</section>
