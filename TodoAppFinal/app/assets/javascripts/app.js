@@ -56,7 +56,7 @@ $scope.addTagForTodo = function () {
 
 
 Todo.saveTag({todoId: $routeParams.id,name: $scope.all_tags});
-$scope.all_ags=""
+$scope.all_tags=""
 $scope.tags=  Todo.getTags({todoId: $routeParams.id});
   };
 
