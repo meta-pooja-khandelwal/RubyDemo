@@ -22,6 +22,72 @@ myApp.factory('Todo', ['$resource', function($resource){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Routes
+myApp.config([
+  '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider.when('/todos',{
+      templateUrl: '/templates/todos/index.html',
+      controller: 'TodoController'
+    });
+
+
+  /**  $routeProvider.when('/active',{
+      templateUrl: '/templates/todos/index.html',
+      controller: 'todoController'
+    });
+*/
+
+    $routeProvider.when('/todos/:id',{
+      templateUrl: '/templates/todos/show.html.erb',
+      controller: 'TodoShowController'
+    });
+
+    $routeProvider.otherwise({
+      redirectTo: '/todos'
+    });
+  }
+]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Controller
 
 angular.module('myApp').controller('TodoShowController',['$scope','$routeParams', '$filter', '$http', '$resource' ,'Comment','Todo', '$location',function($scope,$routeParams, $filter,$http,$resource,Comment,Todo,$location) {
@@ -242,30 +308,3 @@ myApp.controller("TodoController", ['$scope', '$http', '$resource', 'Todo', '$lo
         };
 
 }]);
-
-
-//Routes
-myApp.config([
-  '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider.when('/todos',{
-      templateUrl: '/templates/todos/index.html',
-      controller: 'TodoController'
-    });
-
-
-  /**  $routeProvider.when('/active',{
-      templateUrl: '/templates/todos/index.html',
-      controller: 'todoController'
-    });
-*/
-
-    $routeProvider.when('/todos/:id',{
-      templateUrl: '/templates/todos/show.html.erb',
-      controller: 'TodoShowController'
-    });
-
-    $routeProvider.otherwise({
-      redirectTo: '/todos'
-    });
-  }
-]);

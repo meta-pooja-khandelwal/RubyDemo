@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
 
-get 'todos/addTag', to: 'todos#addTag'
-get 'todos/getTags',to: 'todos#getTags'
+  get 'todos/addTag', to: 'todos#addTag'
+  get 'todos/getTags',to: 'todos#getTags'
+
   resources :todos do
     resources :comments
-    #resources :todos_tag2s
   end
-
-#  resources :tag2s do
-  #  resources :todos_tag2s
-  #end
-
-  #resources :todos_tag1s
-
 
   root 'todos#index'
 

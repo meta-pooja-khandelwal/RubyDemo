@@ -1,40 +1,33 @@
 <h1>{{todo.title}}</h1>
-
 <strong>Comments</strong><br>
-<ul id="todolist">
-<li ng-repeat="comment in commentList" ng-class="{editing: comment == editedComment}">
-  <div>
-<label ng-dblclick = "editComment(comment)">{{comment.body}} </label>
-	<button class="destroy" ng-click="removeComment(comment)" ></button>
-  	</div>
-  <form ng-submit="saveEditsComment(comment)">
-    <input class="edit" ng-trim="false" ng-model="comment.body">
-  </form>
-</li>
-</ul>
 
+<ul id="todolist">
+  <li ng-repeat="comment in commentList" ng-class="{editing: comment == editedComment}">
+    <div>
+      <label ng-dblclick = "editComment(comment)">{{comment.body}} </label>
+      <button class="destroy" ng-click="removeComment(comment)" ></button>
+    </div>
+    <form ng-submit="saveEditsComment(comment)">
+      <input class="edit" ng-trim="false" ng-model="comment.body">
+    </form>
+  </li>
+</ul>
 
 <strong>Tags</strong><br>
 <ul id="todolist">
-<li ng-repeat="tag in tags">
-  <div>
-<label>{{tag.name}} </label>
-	<!-- <button class="destroy" ng-click="removeComment(comment)" ></button> -->
-  	</div>
-  <!-- <form ng-submit="saveEditsComment(comment)">
-    <input class="edit" ng-trim="false" ng-model="comment.body">
-  </form> -->
-</li>
+  <li ng-repeat="tag in tags">
+    <div>
+      <label>{{tag.name}} </label>
+    </div>
+  </li>
 </ul>
-
 
 <h1>Add Tags</h1>
 <form id="tag-form" ng-submit="addTagForTodo()">
-<div>
-     <input id="new-tag" placeholder="Add Tags seperated with comma" ng-model="all_tags" ng-disabled="saving" autofocus>
-</div>
+  <div>
+    <input id="new-tag" placeholder="Add Tag Here" ng-model="all_tags" ng-disabled="saving" autofocus>
+  </div>
 </form>
-
 
 <h1>Add Comment</h1>
 <form id="comment-form" ng-submit="addComment()">
