@@ -14,20 +14,31 @@
 </ul>
 
 <strong>Tags</strong><br>
-<ul id="todolist">
+ <!-- <ul id="todolist">
   <li ng-repeat="tag in tags">
     <div>
       <label>{{tag.name}} </label>
     </div>
   </li>
 </ul>
+ <p>Model: {{tags}}</p> -->
+ <h1>Add Tags</h1>
+ <div class="tag-input-ctn">
+ <div data-ng-repeat="(key,tag) in tags" class="input-tag">
+{{tag.name}}
+<div class="delete-tag" data-ng-click="deleteTag(tag.id,$index)">&times;</div>
+</div>
 
-<h1>Add Tags</h1>
-<form id="tag-form" ng-submit="addTagForTodo()">
-  <div>
-    <input id="new-tag" placeholder="Add Tag Here" ng-model="all_tags" ng-disabled="saving" autofocus>
-  </div>
-</form>
+<!-- <form id="tag-form" ng-submit="addTagForTodo()" >
+  <div> -->
+
+
+     <input type="text" data-tag-input="" data-ng-model="all_tags" data-ng-style="{width:inputWidth}" data-new-tag="addTagForTodo()" data-delete-tag="deleteTag()">
+    </div>
+    <!-- <tags-input ng-model="all_tags" ></tags-input> -->
+    <!-- <input id="new-tag" placeholder="Add Tag Here" ng-model="all_tags" ng-disabled="saving" autofocus> -->
+  <!-- </div> -->
+<!-- </form> -->
 
 <h1>Add Comment</h1>
 <form id="comment-form" ng-submit="addComment()">

@@ -1,11 +1,15 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngResource']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngResource','ngTagsInput']);
 
 //Controllers
 myApp.controller('TodoShowController',['$scope','$routeParams', '$filter', '$http', '$resource' ,'Comment','Todo', '$location',function($scope,$routeParams, $filter,$http,$resource,Comment,Todo,$location) {
   $scope.editedComment = null;
   $scope.todo=Todo.get({id: $routeParams.id});
   $scope.commentList = Comment.query({todo_id: $routeParams.id});
+
+  $scope.tags=[];
   $scope.tags=  Todo.getTags({todoId: $routeParams.id});
+
+
 
   //Define a 'save' method which will be called from the view.
   $scope.addComment = function() {
@@ -23,10 +27,20 @@ myApp.controller('TodoShowController',['$scope','$routeParams', '$filter', '$htt
   };
 
   $scope.addTagForTodo = function () {
+
+    if($scope.all_tags.length==0){
+      return;
+    }
     Todo.saveTag({todoId: $routeParams.id,name: $scope.all_tags});
     $scope.all_tags=""
     $scope.tags=  Todo.getTags({todoId: $routeParams.id});
   };
+
+  $scope.deleteTag=function(tagId,index){
+    Todo.deleteTag({id:tagId});
+    //$scope.tags=  Todo.getTags({todoId: $routeParams.id});
+    $scope.tags.splice(index, 1);
+  }
 
   $scope.editComment = function (comment) {
     $scope.editedComment = comment;

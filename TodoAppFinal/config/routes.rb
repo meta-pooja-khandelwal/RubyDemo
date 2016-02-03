@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'todos/addTag', to: 'todos#addTag'
   get 'todos/getTags',to: 'todos#getTags'
-
+  get 'todos/deleteTag',to: 'todos#deleteTag'
   resources :todos do
     resources :comments
   end

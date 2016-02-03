@@ -49,6 +49,12 @@ class TodosController < ApplicationController
     render json: @todo.tags.as_json, status: :ok
   end
 
+  def deleteTag
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    render json: @tag.as_json, status: :ok
+  end
+
   private
   def todo_params
     params.fetch(:todo).permit(:id,:title, :done,all_tags: [:all_tags])
